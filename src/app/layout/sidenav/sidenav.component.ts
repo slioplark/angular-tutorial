@@ -7,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
-  title = 'angular-tutorial';
-
   constructor() { }
 
   ngOnInit() {

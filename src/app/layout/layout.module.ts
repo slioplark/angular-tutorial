@@ -4,6 +4,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { ContentComponent } from './content/content.component';
 import { FooterComponent } from './footer/footer.component';
 import { SharedModule } from '../shared/shared.module';
+import { LayoutRoutingModule } from './layout-routing.module';
 
 @NgModule({
   declarations: [
@@ -13,14 +14,16 @@ import { SharedModule } from '../shared/shared.module';
     FooterComponent,
   ],
   imports: [
-    SharedModule
+    SharedModule,
+    LayoutRoutingModule
   ],
   exports: [
     HeaderComponent,
     SidenavComponent,
     ContentComponent,
     FooterComponent,
-    SharedModule
+    SharedModule,
+    LayoutRoutingModule
   ]
 })
 export class LayoutModule { }
