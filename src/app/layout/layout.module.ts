@@ -5,8 +5,7 @@ import { ContentComponent } from './content/content.component';
 import { FooterComponent } from './footer/footer.component';
 import { SharedModule } from '../shared/shared.module';
 import { LayoutRoutingModule } from './layout-routing.module';
-import { DialogComponent } from './content/dialog/dialog.component';
-import { OpenDialogComponent } from './content/dialog/open-dialog/open-dialog.component';
+import { MaterialModule } from './content/material/material.module';
 
 @NgModule({
   declarations: [
@@ -14,22 +13,16 @@ import { OpenDialogComponent } from './content/dialog/open-dialog/open-dialog.co
     SidenavComponent,
     ContentComponent,
     FooterComponent,
-    DialogComponent,
-    OpenDialogComponent,
-  ],
-  entryComponents: [
-    OpenDialogComponent
   ],
   imports: [
     SharedModule,
-    LayoutRoutingModule
+    LayoutRoutingModule,
+    MaterialModule
   ],
   exports: [
     HeaderComponent,
     SidenavComponent,
-    ContentComponent,
-    FooterComponent,
-    LayoutRoutingModule
+    LayoutRoutingModule,
   ]
 })
 export class LayoutModule { }
