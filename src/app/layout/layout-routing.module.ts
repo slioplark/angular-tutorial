@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { DialogComponent } from '../main/material/dialog/dialog.component';
 import { ContentComponent } from './content/content.component';
-import { DialogComponent } from './content/material/dialog/dialog.component';
 
 const routes: Routes = [
   { path: 'content', component: ContentComponent },
