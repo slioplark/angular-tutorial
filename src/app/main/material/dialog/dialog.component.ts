@@ -18,11 +18,15 @@ export class DialogComponent implements OnInit {
   openDialog() {
     const dialogRef = this.dialog.open(OpenDialogComponent, {
       width: '500px',
-      data: {}
+      data: { title: 'Install Angular' }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      if (result) {
+        console.log('The dialog click install button');
+      } else {
+        console.log('The dialog click cancel button');
+      }
     });
   }
 
