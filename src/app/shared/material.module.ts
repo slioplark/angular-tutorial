@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -9,7 +8,6 @@ import {
   MatCardModule,
   MatCheckboxModule,
   MatChipsModule,
-  MatStepperModule,
   MatDatepickerModule,
   MatDialogModule,
   MatDividerModule,
@@ -31,17 +29,18 @@ import {
   MatSlideToggleModule,
   MatSnackBarModule,
   MatSortModule,
+  MatStepperModule,
   MatTableModule,
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
-  MatTreeModule
+  MatTreeModule,
 } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [],
   imports: [
-    BrowserAnimationsModule,
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
@@ -76,10 +75,10 @@ import {
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule
+    MatTreeModule,
+    BrowserAnimationsModule
   ],
   exports: [
-    BrowserAnimationsModule,
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
@@ -114,7 +113,8 @@ import {
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule
+    MatTreeModule,
+    BrowserAnimationsModule
   ]
 })
 export class MaterialModule { }

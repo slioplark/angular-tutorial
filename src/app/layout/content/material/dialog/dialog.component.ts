@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
+
 import { OpenDialogComponent } from './open-dialog/open-dialog.component';
 
 @Component({
