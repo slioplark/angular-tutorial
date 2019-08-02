@@ -36,7 +36,6 @@ import {
   MatTooltipModule,
   MatTreeModule,
 } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [],
@@ -75,8 +74,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule,
-    BrowserAnimationsModule
+    MatTreeModule
   ],
   exports: [
     MatAutocompleteModule,
@@ -113,8 +111,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule,
-    BrowserAnimationsModule
+    MatTreeModule
   ]
 })
 export class MaterialModule { }
