@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { MatDatepickerInputEvent } from '@angular/material';
 
 @Component({
   selector: 'app-datepicker',
@@ -8,6 +9,8 @@ import { FormBuilder } from '@angular/forms';
 })
 export class DatepickerComponent implements OnInit {
 
+  max: any;
+  min: any;
   form = this.formBuilder.group({
     startDate: [null],
     endDate: [null]
@@ -20,8 +23,9 @@ export class DatepickerComponent implements OnInit {
   ngOnInit() {
   }
 
-  onDateChange(event) {
-    console.log(event);
+  onDateChange(event: MatDatepickerInputEvent<any>, controlName: string) {
+    if (controlName === 'startDate') { this.min = event.value; }
+    if (controlName === 'endDate') { this.max = event.value; }
   }
 
 }

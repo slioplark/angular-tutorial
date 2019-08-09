@@ -1,17 +1,17 @@
 <section [formGroup]="form">
 
   <mat-form-field>
-    <input matInput [matDatepicker]="startPicker" (dateInput)="onDateChange($event)" formControlName="startDate"
-      placeholder="Choose a start date">
-    <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
-    <mat-datepicker #startPicker></mat-datepicker>
+    <input matInput [matDatepicker]="startDatePicker" [max]="max" (dateInput)="onDateChange($event, 'startDate')"
+      formControlName="startDate" placeholder="Choose a start date">
+    <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #startDatePicker></mat-datepicker>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput [matDatepicker]="endPicker" (dateInput)="onDateChange($event)" formControlName="endDate"
-      placeholder="Choose a end date">
-    <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
-    <mat-datepicker #endPicker></mat-datepicker>
+    <input matInput [matDatepicker]="endDatePicker" [min]="min" (dateInput)="onDateChange($event, 'endDate')"
+      formControlName="endDate" placeholder="Choose a end date">
+    <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #endDatePicker></mat-datepicker>
   </mat-form-field>
 
 </section>

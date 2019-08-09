@@ -25,7 +25,7 @@ import { TableComponent } from './table/table.component';
     MaterialRoutingModule
   ],
   providers: [
-    { provide: MAT_DATE_LOCALE, useValue: 'zn-TW' },
+    { provide: MAT_DATE_LOCALE, useValue: 'zn-TW' }
   ],
 })
 export class MaterialModule { }
