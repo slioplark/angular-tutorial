@@ -5,28 +5,34 @@
 
             <mat-list-item (click)="onClickExpand('Home')">
                 <p matLine>Home</p>
-                <button mat-icon-button>
-                    <mat-icon *ngIf="menu === 'Home'">expand_more</mat-icon>
-                    <mat-icon *ngIf="menu !== 'Home'">expand_less</mat-icon>
-                </button>
+                <mat-icon *ngIf="menu === 'Home'">expand_more</mat-icon>
+                <mat-icon *ngIf="menu !== 'Home'">expand_less</mat-icon>
             </mat-list-item>
             <section [hidden]="menu !== 'Home'">
-                <a mat-list-item [routerLink]="['/layout/content']">Content</a>
+                <a mat-list-item [routerLink]="['/layout/content']">
+                    <mat-icon>label</mat-icon>Content
+                </a>
             </section>
             <mat-divider></mat-divider>
 
             <mat-list-item (click)="onClickExpand('Material')">
                 <p matLine>Material</p>
-                <button mat-icon-button>
-                    <mat-icon *ngIf="menu === 'Material'">expand_more</mat-icon>
-                    <mat-icon *ngIf="menu !== 'Material'">expand_less</mat-icon>
-                </button>
+                <mat-icon *ngIf="menu === 'Material'">expand_more</mat-icon>
+                <mat-icon *ngIf="menu !== 'Material'">expand_less</mat-icon>
             </mat-list-item>
             <section [hidden]="menu !== 'Material'">
-                <a mat-list-item [routerLink]="['/material/autocomplete']">Mat-Autocomplete</a>
-                <a mat-list-item [routerLink]="['/material/dialog']">Mat-Dialog</a>
-                <a mat-list-item [routerLink]="['/material/table']">Mat-Table</a>
-                <a mat-list-item [routerLink]="['/material/datepicker']">Mat-Datepicker</a>
+                <a mat-list-item [routerLink]="['/material/autocomplete']">
+                    <mat-icon>label</mat-icon>Mat-Autocomplete
+                </a>
+                <a mat-list-item [routerLink]="['/material/dialog']">
+                    <mat-icon>label</mat-icon>Mat-Dialog
+                </a>
+                <a mat-list-item [routerLink]="['/material/table']">
+                    <mat-icon>label</mat-icon>Mat-Table
+                </a>
+                <a mat-list-item [routerLink]="['/material/datepicker']">
+                    <mat-icon>label</mat-icon>Mat-Datepicker
+                </a>
             </section>
             <mat-divider></mat-divider>
 
