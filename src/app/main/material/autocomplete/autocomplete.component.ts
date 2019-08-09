@@ -10,9 +10,11 @@ import { debounceTime, map, startWith } from 'rxjs/operators';
 })
 export class AutocompleteComponent implements OnInit {
 
-  list$: any;
+  users$: any;
+  todos$: any;
   formGroup = this.form.group({
-    autoControl: [null]
+    user: [null],
+    todo: [null]
   });
 
   constructor(
@@ -21,16 +23,41 @@ export class AutocompleteComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getUsers();
+    this.getTodos();
+  }
+
+  displayUserFn(item) {
+    return item ? item.name : undefined;
+  }
+
+  displayTodoFn(item) {
+    return item ? item.title : undefined;
+  }
+
+  getUsers() {
     this.http.get<Array<any>>('https://jsonplaceholder.typicode.com/users').subscribe(result => {
-      this.list$ = this.formGroup.get('autoControl').valueChanges.pipe(
+      this.users$ = this.formGroup.get('user').valueChanges.pipe(
         startWith(''),
         debounceTime(300),
-        map(value => result.filter(item => this.autoCompleteFilter(item.name, value)))
+        map(value => typeof value === 'string' ? value : value.name),
+        map(value => result.filter(item => this.autocompleteFilter(item.name, value)))
       );
     });
   }
 
-  autoCompleteFilter(item: string, value: string) {
+  getTodos() {
+    this.http.get<Array<any>>('https://jsonplaceholder.typicode.com/todos').subscribe(result => {
+      this.todos$ = this.formGroup.get('todo').valueChanges.pipe(
+        startWith(''),
+        debounceTime(300),
+        map(value => typeof value === 'string' ? value : value.title),
+        map(value => result.filter(item => this.autocompleteFilter(item.title, value)))
+      );
+    });
+  }
+
+  autocompleteFilter(item: string, value: string) {
     return item.toLowerCase().includes(value.toLowerCase());
   }
 

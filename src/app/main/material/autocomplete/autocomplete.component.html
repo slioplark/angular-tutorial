@@ -1,10 +1,23 @@
 <section [formGroup]="formGroup">
+
+    <!-- users -->
     <mat-form-field>
-        <input type="text" placeholder="Pick one" matInput formControlName="autoControl" [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let item of list$ | async" [value]="item.name">
+        <input type="text" placeholder="Pick user" matInput formControlName="user" [matAutocomplete]="autoUser">
+        <mat-autocomplete #autoUser="matAutocomplete" [displayWith]="displayUserFn">
+            <mat-option *ngFor="let item of users$ | async" [value]="item">
                 {{item.name}}
             </mat-option>
         </mat-autocomplete>
     </mat-form-field>
+
+    <!-- todos -->
+    <mat-form-field>
+        <input type="text" placeholder="Pick todo" matInput formControlName="todo" [matAutocomplete]="autoTodo">
+        <mat-autocomplete #autoTodo="matAutocomplete" [displayWith]="displayTodoFn">
+            <mat-option *ngFor="let item of todos$ | async" [value]="item">
+                {{item.title}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+
 </section>
