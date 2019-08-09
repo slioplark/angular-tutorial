@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
+  menu: string;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onClickExpand(menu: string) {
+    this.menu = this.menu === menu ? '' : menu;
   }
 
 }
