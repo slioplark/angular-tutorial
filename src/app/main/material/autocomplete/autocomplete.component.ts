@@ -12,14 +12,14 @@ export class AutocompleteComponent implements OnInit {
 
   users$: any;
   todos$: any;
-  formGroup = this.form.group({
+  form = this.formBuilder.group({
     user: [null],
     todo: [null]
   });
 
   constructor(
     private http: HttpClient,
-    private form: FormBuilder
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
@@ -35,9 +35,13 @@ export class AutocompleteComponent implements OnInit {
     return item ? item.title : undefined;
   }
 
+  onClickClear(controlName: string) {
+    this.form.get(controlName).patchValue('');
+  }
+
   getUsers() {
     this.http.get<Array<any>>('https://jsonplaceholder.typicode.com/users').subscribe(result => {
-      this.users$ = this.formGroup.get('user').valueChanges.pipe(
+      this.users$ = this.form.get('user').valueChanges.pipe(
         startWith(''),
         debounceTime(300),
         map(value => typeof value === 'string' ? value : value.name),
@@ -48,7 +52,7 @@ export class AutocompleteComponent implements OnInit {
 
   getTodos() {
     this.http.get<Array<any>>('https://jsonplaceholder.typicode.com/todos').subscribe(result => {
-      this.todos$ = this.formGroup.get('todo').valueChanges.pipe(
+      this.todos$ = this.form.get('todo').valueChanges.pipe(
         startWith(''),
         debounceTime(300),
         map(value => typeof value === 'string' ? value : value.title),

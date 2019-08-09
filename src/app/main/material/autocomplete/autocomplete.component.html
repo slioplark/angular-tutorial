@@ -1,4 +1,4 @@
-<section [formGroup]="formGroup" fxLayout="column">
+<section [formGroup]="form" fxLayout="column">
 
     <!-- users -->
     <mat-form-field>
@@ -8,6 +8,9 @@
                 {{item.name}}
             </mat-option>
         </mat-autocomplete>
+        <button mat-icon-button matSuffix (click)="onClickClear('user')">
+            <mat-icon>clear</mat-icon>
+        </button>
     </mat-form-field>
 
     <!-- todos -->
@@ -18,6 +21,9 @@
                 {{item.title}}
             </mat-option>
         </mat-autocomplete>
+        <button mat-icon-button matSuffix (click)="onClickClear('todo')">
+            <mat-icon>clear</mat-icon>
+        </button>
     </mat-form-field>
 
 </section>
