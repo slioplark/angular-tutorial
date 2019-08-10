@@ -27,4 +27,8 @@ export class TableComponent implements OnInit {
     });
   }
 
+  applyFilter(value: string) {
+    this.dataSource.filter = value.trim().toLowerCase();
+  }
+
 }
