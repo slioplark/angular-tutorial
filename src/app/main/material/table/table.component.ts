@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 
 @Component({
   selector: 'app-table',
@@ -9,6 +9,7 @@ import { MatPaginator, MatTableDataSource } from '@angular/material';
 })
 export class TableComponent implements OnInit {
 
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   isLoading = true;
@@ -21,6 +22,7 @@ export class TableComponent implements OnInit {
     this.http.get<any>('https://jsonplaceholder.typicode.com/users').subscribe(data => {
       this.isLoading = false;
       this.dataSource.data = data;
+      this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
     });
   }
