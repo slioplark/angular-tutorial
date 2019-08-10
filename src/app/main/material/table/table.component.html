@@ -1,4 +1,4 @@
-<mat-card fxLayout="column" fxLayoutAlign="center center">
+<mat-card>
 
     <table mat-table [dataSource]="dataSource">
 
@@ -46,7 +46,12 @@
 
     </table>
 
+    <!-- paginator -->
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
     <!-- loading -->
-    <mat-spinner *ngIf="loading"></mat-spinner>
+    <section fxLayout="column" fxLayoutAlign="center center">
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+    </section>
 
 </mat-card>

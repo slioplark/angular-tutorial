@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-table',
@@ -8,16 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableComponent implements OnInit {
 
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+
+  isLoading = true;
   displayedColumns: string[] = ['id', 'name', 'email', 'phone', 'website', 'management'];
-  dataSource: any;
-  loading = true;
+  dataSource = new MatTableDataSource<any>();
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get('https://jsonplaceholder.typicode.com/users').subscribe(data => {
-      this.dataSource = data;
-      this.loading = false;
+    this.http.get<any>('https://jsonplaceholder.typicode.com/users').subscribe(data => {
+      this.isLoading = false;
+      this.dataSource.data = data;
+      this.dataSource.paginator = this.paginator;
     });
   }
 
