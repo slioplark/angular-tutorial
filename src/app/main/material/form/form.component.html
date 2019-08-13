@@ -1,0 +1,25 @@
+<section [formGroup]="form">
+
+  <mat-form-field>
+    <input matInput formControlName="firstName" placeholder="First Name">
+    <mat-error *ngIf="form.get('firstName').invalid">{{ getErrorMessage('firstName') }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput formControlName="lastName" placeholder="Last Name">
+    <mat-error *ngIf="form.get('lastName').invalid">{{ getErrorMessage('lastName') }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <input matInput formControlName="email" placeholder="Email">
+    <mat-error *ngIf="form.get('email').invalid">{{ getErrorMessage('email') }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <textarea matInput formControlName="comment" placeholder="Leave a comment"></textarea>
+    <mat-error *ngIf="form.get('comment').invalid">{{ getErrorMessage('comment') }}</mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" [disabled]="form.invalid">Submit</button>
+
+</section>
