@@ -1,6 +1,7 @@
+import { SelectionModel } from '@angular/cdk/collections';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-table',
@@ -13,8 +14,12 @@ export class TableComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   isLoading = true;
-  displayedColumns: string[] = ['id', 'name', 'email', 'phone', 'website', 'management'];
+  displayedColumns: Array<string> = ['select', 'id', 'name', 'email', 'phone', 'website', 'management'];
   dataSource = new MatTableDataSource<any>();
+
+  initialSelection = [];
+  allowMultiSelect = true;
+  selection = new SelectionModel<any>(this.allowMultiSelect, this.initialSelection);
 
   constructor(private http: HttpClient) { }
 
@@ -29,6 +34,18 @@ export class TableComponent implements OnInit {
 
   applyFilter(value: string) {
     this.dataSource.filter = value.trim().toLowerCase();
+  }
+
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
+  }
+
+  masterToggle() {
+    this.isAllSelected() ?
+      this.selection.clear() :
+      this.dataSource.data.forEach(row => { this.selection.select(row); });
   }
 
 }
