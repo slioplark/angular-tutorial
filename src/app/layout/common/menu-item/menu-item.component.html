@@ -1,0 +1,9 @@
+<mat-list-item (click)="onClickMenu(item)">
+  <p matLine>{{ item }}</p>
+  <ng-container *ngIf="menu === item; else elseBlock">
+    <mat-icon>expand_more</mat-icon>
+  </ng-container>
+  <ng-template #elseBlock>
+    <mat-icon>expand_less</mat-icon>
+  </ng-template>
+</mat-list-item>

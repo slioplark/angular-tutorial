@@ -23,8 +23,8 @@ export class SidenavComponent implements OnInit, OnChanges {
     this.matDrawer.toggle();
   }
 
-  onClickExpand(menu: string) {
-    this.menu = this.menu === menu ? '' : menu;
+  onMenuChange(event: string) {
+    this.menu = event;
   }
 
 }

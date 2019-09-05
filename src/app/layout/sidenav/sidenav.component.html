@@ -3,11 +3,7 @@
     <mat-drawer mode="side" opened>
         <mat-nav-list>
 
-            <mat-list-item (click)="onClickExpand('Home')">
-                <p matLine>Home</p>
-                <mat-icon *ngIf="menu === 'Home'">expand_more</mat-icon>
-                <mat-icon *ngIf="menu !== 'Home'">expand_less</mat-icon>
-            </mat-list-item>
+            <app-menu-item [menu]="menu" [item]="'Home'" (menuChange)="onMenuChange($event)"></app-menu-item>
             <section [hidden]="menu !== 'Home'">
                 <a mat-list-item [routerLink]="['/layout/content']">
                     <mat-icon>label</mat-icon>Content
@@ -15,11 +11,7 @@
             </section>
             <mat-divider></mat-divider>
 
-            <mat-list-item (click)="onClickExpand('Material')">
-                <p matLine>Material</p>
-                <mat-icon *ngIf="menu === 'Material'">expand_more</mat-icon>
-                <mat-icon *ngIf="menu !== 'Material'">expand_less</mat-icon>
-            </mat-list-item>
+            <app-menu-item [menu]="menu" [item]="'Material'" (menuChange)="onMenuChange($event)"></app-menu-item>
             <section [hidden]="menu !== 'Material'">
                 <a mat-list-item [routerLink]="['/material/autocomplete']">
                     <mat-icon>label</mat-icon>Mat-Autocomplete

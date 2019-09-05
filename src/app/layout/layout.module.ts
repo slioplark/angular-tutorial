@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { MainModule } from '../main/main.module';
 import { SharedModule } from '../shared/shared.module';
+import { MenuItemComponent } from './common/menu-item/menu-item.component';
 import { ContentComponent } from './content/content.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
@@ -14,6 +15,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     SidenavComponent,
     ContentComponent,
     FooterComponent,
+    MenuItemComponent
   ],
   imports: [
     SharedModule,
